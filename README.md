@@ -781,8 +781,8 @@ docker exec -it vol-test2 bash -lc "cat /data/hello.txt"
 
 ```bash
 git --version
-git config --global user.name "YOUNG SE PARK"
-git config --global user.email "metastudy999@gmail.com"
+git config --global user.name "이름"
+git config --global user.email "이메일"
 git config --global init.defaultBranch main
 git config --list
 ```
@@ -833,7 +833,7 @@ GitHub에서 `ai-sw-workstation` 저장소를 생성했다.
 ### 18-2. 원격 저장소 연결
 
 ```bash
-git remote add origin https://github.com/본인계정/ai-sw-workstation.git
+git remote add origin https://github.com/metastudy999/ai-sw-workstation.git
 git branch -M main
 git push -u origin main
 ```
@@ -926,8 +926,8 @@ OrbStack을 실행한 뒤 `docker info`를 다시 실행하니 정상 출력되�
 
 #### 대안
 
-* OrbStack 재실행
-* 터미널 재시작
+* OrbStack 재실행     # orb stop, orb start
+* 터미널 재시작         # exec $SHELL
 * 여전히 안 되면 공용 환경 관리 정책 확인
 
 ---
@@ -1166,7 +1166,7 @@ environment:
 ### 28-1. SSH 키 생성
 
 ```bash
-ssh-keygen -t ed25519 -C "example@example.com"
+ssh-keygen -t ed25519 -C "metastudy999@gmail.com"
 ```
 
 ### 28-2. 공개키 확인
@@ -1184,7 +1184,7 @@ ssh -T git@github.com
 ### 28-4. 원격 저장소 주소를 SSH 방식으로 변경
 
 ```bash
-git remote set-url origin git@github.com:본인계정/ai-sw-workstation.git
+git remote set-url origin git@github.com:metastudy999/ai-sw-workstation.git
 git remote -v
 git push
 ```
