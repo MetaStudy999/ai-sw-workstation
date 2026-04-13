@@ -19,99 +19,163 @@
 
 ## 2. 실행 환경
 
-- OS: macOS Catalina 10.15.7
-```bash
-sw_vers
-ProductName:            macOS
-ProductVersion:         15.7.4
-BuildVersion:           24G517
-```
-
+- OS: macOS Sequoia 15.7.4
 - Hardware: iMac Retina 5K, 27-inch, 2019 / 3.1 GHz 6-Core Intel Core i5 / RAM 32GB
-
-```bash
-system_profiler SPHardwareDataType
-
-Hardware:
-
-    Hardware Overview:
-
-      Model Name: iMac
-      Model Identifier: iMac19,1
-      Processor Name: 6-Core Intel Core i5
-      Processor Speed: 3.1 GHz
-      Number of Processors: 1
-      Total Number of Cores: 6
-      L2 Cache (per Core): 256 KB
-      L3 Cache: 9 MB
-      Memory: 32 GB
-      System Firmware Version: 2094.80.5.0.0
-      OS Loader Version: 583~2317
-      SMC Version (system): 2.46f12
-      Serial Number (system): C02ZL0BWJV3Y
-      Hardware UUID: 8C116695-7642-5CFF-936E-3FA1D9C82FDD
-      Provisioning UDID: 8C116695-7642-5CFF-936E-3FA1D9C82FDD
-```
-
 - Shell: zsh
-```bash
-echo $SHELL
-/bin/zsh
-```
-
 - Terminal: macOS Terminal
-
 - Container Runtime: OrbStack
-
-- Docker:
-```bash
-docker --version
-Docker version 28.5.2, build ecc6942
-```
-
-- Git: 아래 명령 출력 참조
-```bash
-git --version
-git version 2.53.0
-```
-
+- Docker: 28.5.2, build ecc6942
+- Git: 2.53.0
 - Editor: VS Code
 
 ### 2-1. 버전 확인
 
 ```bash
-sw_vers
-uname -a
-echo $SHELL
-docker --version
-docker info
-git --version
-code --version
+% sw_vers
+% uname -a
+% sysctl hw.memsize
+$ echo "$(($(sysctl -n hw.memsize) / 1024 / 1024 / 1024)) GB"
+% echo $SHELL
+% docker --version
+% docker info
+% git --version
+% code --version
 ````
 
 ### 2-2. 실행 결과
 
 ```bash
-ProductName:    Mac OS X
-ProductVersion: 10.15.7
-BuildVersion:   19H2026
+% sw_vers
+ProductName:		macOS
+ProductVersion:		15.7.4
+BuildVersion:		24G517
 
-Darwin ... x86_64 ...
+% uname -a
+Darwin c3r6s3.codyssey.kr 24.6.0 Darwin Kernel Version 24.6.0: Mon Jan 19 22:00:10 PST 2026; root:xnu-11417.140.69.708.3~1/RELEASE_X86_64 x86_64
 
+
+% sysctl hw.memsize 
+hw.memsize: 34359738368
+
+
+% echo "$(($(sysctl -n hw.memsize) / 1024 / 1024 / 1024)) GB"
+32 GB
+
+
+% echo $SHELL
 /bin/zsh
 
-Docker version 28.5.2, build ...
-...
-Server Version: 28.5.2
-...
 
-git version 2.xx.x
+% docker --version
+Docker version 28.5.2, build ecc6942
 
-1.xx.x
-...
+
+% docker info
+Client:
+ Version:    28.5.2
+ Context:    orbstack
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.29.1
+    Path:     /Users/metastudy9997479/.docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.40.3
+    Path:     /Users/metastudy9997479/.docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 2
+  Running: 2
+  Paused: 0
+  Stopped: 0
+ Images: 3
+ Server Version: 28.5.2
+ Storage Driver: overlay2
+  Backing Filesystem: btrfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Swarm: inactive
+ Runtimes: runc io.containerd.runc.v2
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 1c4457e00facac03ce1d75f7b6777a7a851e5c41
+ runc version: d842d7719497cc3b774fd71620278ac9e17710e0
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.17.8-orbstack-00308-g8f9c941121b1
+ Operating System: OrbStack
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 6
+ Total Memory: 15.67GiB
+ Name: orbstack
+ ID: 85eb8cc9-c144-44c0-ab71-2bfbd6c68f93
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Product License: Community Engine
+ Default Address Pools:
+   Base: 192.168.97.0/24, Size: 24
+   Base: 192.168.107.0/24, Size: 24
+   Base: 192.168.117.0/24, Size: 24
+   Base: 192.168.147.0/24, Size: 24
+   Base: 192.168.148.0/24, Size: 24
+   Base: 192.168.155.0/24, Size: 24
+   Base: 192.168.156.0/24, Size: 24
+   Base: 192.168.158.0/24, Size: 24
+   Base: 192.168.163.0/24, Size: 24
+   Base: 192.168.164.0/24, Size: 24
+   Base: 192.168.165.0/24, Size: 24
+   Base: 192.168.166.0/24, Size: 24
+   Base: 192.168.167.0/24, Size: 24
+   Base: 192.168.171.0/24, Size: 24
+   Base: 192.168.172.0/24, Size: 24
+   Base: 192.168.181.0/24, Size: 24
+   Base: 192.168.183.0/24, Size: 24
+   Base: 192.168.186.0/24, Size: 24
+   Base: 192.168.207.0/24, Size: 24
+   Base: 192.168.214.0/24, Size: 24
+   Base: 192.168.215.0/24, Size: 24
+   Base: 192.168.216.0/24, Size: 24
+   Base: 192.168.223.0/24, Size: 24
+   Base: 192.168.227.0/24, Size: 24
+   Base: 192.168.228.0/24, Size: 24
+   Base: 192.168.229.0/24, Size: 24
+   Base: 192.168.237.0/24, Size: 24
+   Base: 192.168.239.0/24, Size: 24
+   Base: 192.168.242.0/24, Size: 24
+   Base: 192.168.247.0/24, Size: 24
+   Base: fd07:b51a:cc66:d000::/56, Size: 64
+
+
+% git --version
+git version 2.53.0
+
+
+% code --version
+1.112.0
+07ff9d6178ede9a1bd12ad3399074d726ebe6e43
+x64
 ```
-
-> 실제 출력 결과로 교체
 
 ---
 
@@ -137,7 +201,7 @@ ai-sw-workstation/
 │   │   ├── 01-browser-8080.png
 │   │   ├── 02-vscode-github-login.png
 │   │   ├── 03-github-repo.png
-│   │   ├── 04-compose-browser-8081.png
+│   │   ├── 04-compose-browser-8080.png
 │   │   └── 05-compose-multi-container.png
 │   └── logs/
 │       ├── terminal-basic.txt
@@ -338,18 +402,104 @@ docker info
 ### 9-2. 결과 예시
 
 ```bash
-Docker version 28.5.2, build ...
+% docker --version
+Docker version 28.5.2, build ecc6942
 
+% docker info
 Client:
  Version:    28.5.2
  Context:    orbstack
-...
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.29.1
+    Path:     /Users/metastudy9997479/.docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.40.3
+    Path:     /Users/metastudy9997479/.docker/cli-plugins/docker-compose
 
 Server:
- Containers: ...
- Images: ...
+ Containers: 2
+  Running: 2
+  Paused: 0
+  Stopped: 0
+ Images: 3
  Server Version: 28.5.2
-...
+ Storage Driver: overlay2
+  Backing Filesystem: btrfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 2
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ CDI spec directories:
+  /etc/cdi
+  /var/run/cdi
+ Swarm: inactive
+ Runtimes: io.containerd.runc.v2 runc
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 1c4457e00facac03ce1d75f7b6777a7a851e5c41
+ runc version: d842d7719497cc3b774fd71620278ac9e17710e0
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: builtin
+  cgroupns
+ Kernel Version: 6.17.8-orbstack-00308-g8f9c941121b1
+ Operating System: OrbStack
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 6
+ Total Memory: 15.67GiB
+ Name: orbstack
+ ID: 85eb8cc9-c144-44c0-ab71-2bfbd6c68f93
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ Experimental: false
+ Insecure Registries:
+  ::1/128
+  127.0.0.0/8
+ Live Restore Enabled: false
+ Product License: Community Engine
+ Default Address Pools:
+   Base: 192.168.97.0/24, Size: 24
+   Base: 192.168.107.0/24, Size: 24
+   Base: 192.168.117.0/24, Size: 24
+   Base: 192.168.147.0/24, Size: 24
+   Base: 192.168.148.0/24, Size: 24
+   Base: 192.168.155.0/24, Size: 24
+   Base: 192.168.156.0/24, Size: 24
+   Base: 192.168.158.0/24, Size: 24
+   Base: 192.168.163.0/24, Size: 24
+   Base: 192.168.164.0/24, Size: 24
+   Base: 192.168.165.0/24, Size: 24
+   Base: 192.168.166.0/24, Size: 24
+   Base: 192.168.167.0/24, Size: 24
+   Base: 192.168.171.0/24, Size: 24
+   Base: 192.168.172.0/24, Size: 24
+   Base: 192.168.181.0/24, Size: 24
+   Base: 192.168.183.0/24, Size: 24
+   Base: 192.168.186.0/24, Size: 24
+   Base: 192.168.207.0/24, Size: 24
+   Base: 192.168.214.0/24, Size: 24
+   Base: 192.168.215.0/24, Size: 24
+   Base: 192.168.216.0/24, Size: 24
+   Base: 192.168.223.0/24, Size: 24
+   Base: 192.168.227.0/24, Size: 24
+   Base: 192.168.228.0/24, Size: 24
+   Base: 192.168.229.0/24, Size: 24
+   Base: 192.168.237.0/24, Size: 24
+   Base: 192.168.239.0/24, Size: 24
+   Base: 192.168.242.0/24, Size: 24
+   Base: 192.168.247.0/24, Size: 24
+   Base: fd07:b51a:cc66:d000::/56, Size: 64
 ```
 
 ### 9-3. 해석
@@ -378,11 +528,10 @@ docker ps -a
 ### 10-3. 로그 및 리소스 확인
 
 ```bash
-docker logs hello-test
+docker logs my-web    # 실제 컨테이너 이름
 docker stats --no-stream
 ```
 
-> 실제 컨테이너 이름에 맞게 수정
 
 ### 10-4. 해석
 
@@ -632,13 +781,11 @@ docker exec -it vol-test2 bash -lc "cat /data/hello.txt"
 
 ```bash
 git --version
-git config --global user.name "홍길동"
-git config --global user.email "example@example.com"
+git config --global user.name "YOUNG SE PARK"
+git config --global user.email "metastudy999@gmail.com"
 git config --global init.defaultBranch main
 git config --list
 ```
-
-> 실제 이름/이메일로 교체
 
 ### 16-2. 설명
 
@@ -680,7 +827,7 @@ git commit -m "feat: initialize AI/SW workstation mission project"
 
 GitHub에서 `ai-sw-workstation` 저장소를 생성했다.
 
-* 저장소 URL: `https://github.com/본인계정/ai-sw-workstation`
+* 저장소 URL: `https://github.com/metastudy999/ai-sw-workstation`
 * 증거 파일: `docs/screenshots/03-github-repo.png`
 
 ### 18-2. 원격 저장소 연결
@@ -809,7 +956,7 @@ lsof -i :8080
 
 ```bash
 docker rm -f my-web
-docker run -d -p 8081:80 --name my-web my-web:1.0
+docker run -d -p 8080:80 --name my-web my-web:1.0
 ```
 
 #### 대안
@@ -875,7 +1022,7 @@ README에 포트 변경 가능성을 함께 기록해 재현성을 높인다.
 ### 24-1. `.env`
 
 ```env
-HOST_PORT=8081
+HOST_PORT=8080
 APP_ENV=compose-dev
 ```
 
@@ -900,7 +1047,7 @@ services:
 docker compose up -d
 docker compose ps
 docker compose logs
-curl http://localhost:8081
+curl http://localhost:8080
 ```
 
 ### 24-4. 설명
@@ -920,7 +1067,7 @@ services:
     image: nginx:alpine
     container_name: compose-web
     ports:
-      - "8081:80"
+      - "8080:80"
     volumes:
       - ./app:/usr/share/nginx/html
     depends_on:
@@ -994,7 +1141,7 @@ docker compose down
 ### 27-1. `.env` 파일
 
 ```env
-HOST_PORT=8081
+HOST_PORT=8080
 APP_ENV=compose-dev
 ```
 
@@ -1057,7 +1204,7 @@ git push
 | 브라우저 접속           | `docs/screenshots/01-browser-8080.png`            |
 | VSCode GitHub 로그인 | `docs/screenshots/02-vscode-github-login.png`     |
 | GitHub 저장소 화면     | `docs/screenshots/03-github-repo.png`             |
-| Compose 브라우저 접속   | `docs/screenshots/04-compose-browser-8081.png`    |
+| Compose 브라우저 접속   | `docs/screenshots/04-compose-browser-8080.png`    |
 | Compose 멀티 컨테이너   | `docs/screenshots/05-compose-multi-container.png` |
 | 터미널 로그            | `docs/logs/terminal-basic.txt`                    |
 | Docker 로그         | `docs/logs/docker-basic.txt`                      |

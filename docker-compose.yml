@@ -1,0 +1,18 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: compose-web
+    ports:
+      - "${HOST_PORT}:80"
+    volumes:
+      - ./app:/usr/share/nginx/html
+      - ./compose/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    environment:
+      APP_ENV: ${APP_ENV}
+    depends_on:
+      - helper
+
+  helper:
+    image: alpine
+    container_name: compose-helper
+    command: ["sh", "-c", "while true; do echo helper-running; sleep 30; done"]

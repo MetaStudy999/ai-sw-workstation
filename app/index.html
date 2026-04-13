@@ -2,10 +2,71 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Bind Mount Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI/SW 개발 워크스테이션</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      background: #f7f9fc;
+      color: #222;
+    }
+    .card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    h1 {
+      color: #1d4ed8;
+    }
+    code {
+      background: #eef2ff;
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+    .status {
+      margin-top: 20px;
+      padding: 14px;
+      background: #ecfeff;
+      border-left: 6px solid #06b6d4;
+      border-radius: 8px;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>바인드 마운트 반영 성공</h1>
-  <p>호스트 파일 수정이 컨테이너에 바로 반영되었습니다.</p>
+  <div class="card">
+    <h1>AI/SW 개발 워크스테이션 구축 성공</h1>
+    <p>이 페이지는 <code>Dockerfile</code> 기반 커스텀 NGINX 이미지로 실행되었습니다.</p>
+
+    <div class="status">
+      <strong>현재 상태</strong><br>
+      Docker 웹 서버가 정상적으로 실행 중입니다.
+    </div>
+
+    <h2>검증 포인트</h2>
+    <ul>
+      <li>Dockerfile 기반 이미지 빌드 성공</li>
+      <li>컨테이너 실행 성공</li>
+      <li>포트 매핑 접속 성공</li>
+      <li>정적 HTML 서비스 확인</li>
+    </ul>
+
+    <h2>추가 페이지</h2>
+    <p><a href="/about.html">about 페이지 보기</a></p>
+  </div>
 </body>
-<html>
+</html>
