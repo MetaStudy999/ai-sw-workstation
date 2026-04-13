@@ -151,6 +151,11 @@ ai-sw-workstation/
 공용 맥 환경에서는 `sudo` 권한 제약으로 일반적인 Docker 설치/데몬 제어가 어려울 수 있으므로, OrbStack을 실행한 뒤 터미널에서 `docker` 명령을 사용했다.
 
 * OrbStack 앱 실행
+```bash
+orb status  # 상태확인
+orb start   # 시작
+orb stop    # 중지
+```
 * 터미널 실행
 * `docker info`로 엔진 상태 확인
 
