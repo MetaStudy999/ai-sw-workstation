@@ -20,12 +20,61 @@
 ## 2. 실행 환경
 
 - OS: macOS Catalina 10.15.7
+```bash
+sw_vers
+ProductName:            macOS
+ProductVersion:         15.7.4
+BuildVersion:           24G517
+```
+
 - Hardware: iMac Retina 5K, 27-inch, 2019 / 3.1 GHz 6-Core Intel Core i5 / RAM 32GB
+
+```bash
+system_profiler SPHardwareDataType
+
+Hardware:
+
+    Hardware Overview:
+
+      Model Name: iMac
+      Model Identifier: iMac19,1
+      Processor Name: 6-Core Intel Core i5
+      Processor Speed: 3.1 GHz
+      Number of Processors: 1
+      Total Number of Cores: 6
+      L2 Cache (per Core): 256 KB
+      L3 Cache: 9 MB
+      Memory: 32 GB
+      System Firmware Version: 2094.80.5.0.0
+      OS Loader Version: 583~2317
+      SMC Version (system): 2.46f12
+      Serial Number (system): C02ZL0BWJV3Y
+      Hardware UUID: 8C116695-7642-5CFF-936E-3FA1D9C82FDD
+      Provisioning UDID: 8C116695-7642-5CFF-936E-3FA1D9C82FDD
+```
+
 - Shell: zsh
+```bash
+echo $SHELL
+/bin/zsh
+```
+
 - Terminal: macOS Terminal
+
 - Container Runtime: OrbStack
-- Docker: 아래 명령 출력 참조
+
+- Docker:
+```bash
+docker --version
+Docker version 28.5.2, build ecc6942
+```
+
 - Git: 아래 명령 출력 참조
+```bash
+git --version
+git version 2.53.0
+```
+
 - Editor: VS Code
 
 ### 2-1. 버전 확인
